@@ -1,0 +1,36 @@
+### Hi there 👋
+
+<!--
+**JasperChen1012/JasperChen1012** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
+Here are some ideas to get you started:
+
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+-->
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    ;
+    vector <pair<int, int>> a{};
+    int w, l;
+    int x,y;
+    cin >> w >> l;
+    for (int i=0; i<l; i++){
+        cin >> x >> y;
+        a.push_back({x,y});
+        }
+    for(auto item:a) cout << item.first <<" "<< item.second<< endl;
+    return 0;
+}
