@@ -1,0 +1,47 @@
+- 👋 Hi, I’m @JasperChen1012
+- 👀 I’m interested in ...
+- 🌱 I’m currently learning ...
+- 💞️ I’m looking to collaborate on ...
+- 📫 How to reach me ...
+
+<!---
+JasperChen1012/JasperChen1012 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <bits/stdc++.h>
+using namespace std;
+
+map<string, int> mp;
+int main(){
+    int N;
+    int count, number{0};
+    string a;
+    cin >> N;
+    vector <string> v1;
+    for(int i=0; i<N; i++){
+        cin >> a;
+        v1.push_back(a);
+        }
+     for( int k=0; k<N; k++){
+         count = 0;
+        for( int j=0; j<k+1; j++){
+            if(v1[k]==v1[j]){
+                count ++;
+                }
+            }
+        if(count==1){
+            number++;
+            mp[v1[k]] = number;
+            cout << "New! " << number;
+            }
+        else if(count > 1){
+            cout << "Old! " << mp[v1[k]];
+            }
+        cout << endl;
+        }
+    return 0;
+    }
