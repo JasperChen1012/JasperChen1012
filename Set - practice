@@ -1,0 +1,58 @@
+### Hi there 👋
+
+<!--
+**JasperChen1012/JasperChen1012** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
+Here are some ideas to get you started:
+
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+-->
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+ll n;
+multiset<ll> small, big;
+
+void pop_big(){
+	ll x = *big.begin();
+	small.insert(x);
+	big.erase(big.begin());
+}
+
+void pop_small(){
+	ll x = *small.rbegin();
+	big.insert(x);
+	small.erase(prev(small.end()));
+}
+
+int main() {
+	ios::sync_with_stdio(0), cin.tie(0);
+	cout << fixed << setprecision(6);
+	cin >> n;
+	for(int i=1,x;i<=n;i++){
+		cin >> x;
+
+		if(i == 1 || x < *small.rbegin()) small.insert(x);
+		else big.insert(x);
+
+		while(big.size() > i/2) pop_big();
+		while(big.size() < i/2) pop_small();
+
+		double ans;
+		if(i&1) ans = *small.rbegin();
+		else ans = (*small.rbegin() + *big.begin()) * 1.0 / 2;
+		cout << ans << '\n';
+	}
+}
