@@ -1,0 +1,41 @@
+- 👋 Hi, I’m @JasperChen1012
+- 👀 I’m interested in ...
+- 🌱 I’m currently learning ...
+- 💞️ I’m looking to collaborate on ...
+- 📫 How to reach me ...
+
+<!---
+JasperChen1012/JasperChen1012 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main(){
+   int N;
+   cin >> N;
+   int n, H, M;
+   int h, m;
+   vector <int> ans;
+   int answer;
+   for(int i=0; i<N; i++){
+       ans.clear();
+       cin >> n >> H >> M;
+       for(int j=0; j<n; j++){
+           cin >>h >> m;
+           if(H>h)
+               answer = (1440-H*60-M)+h*60+m;
+           else
+               answer = h*60+m-H*60-M;
+           ans. push_back(answer);
+           }
+        sort(ans.begin(), ans.end());
+        cout << ans[0]/60 << " " << ans[0]%60 << endl;
+       }
+       
+       return 0;
+    }
