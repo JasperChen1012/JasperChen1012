@@ -1,0 +1,76 @@
+### Hi there 👋
+
+<!--
+**JasperChen1012/JasperChen1012** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
+Here are some ideas to get you started:
+
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+-->
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define fastio()                      \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);                    \
+    cout.tie(NULL)
+#define ll long long int
+ 
+void solve()
+{
+    int t;
+    cin >> t;
+ 
+    while (t--)
+    {
+ 
+        int s;
+        cin >> s;
+ 
+        int d = 9;
+        vector<int> ans;
+ 
+        while (s >= 10)
+        {
+ 
+            ans.push_back(d);
+            s = s - d;
+            d--;
+        }
+ 
+        while (s > 0)
+        {
+            if (find(ans.begin(), ans.end(), s) != ans.end())
+            {
+                s--;
+                d--;
+            }
+ 
+            else
+            {
+                ans.push_back(s);
+                s = s - d;
+            }
+        }
+        reverse(ans.begin(), ans.end());
+ 
+        for (auto i : ans)
+            cout << i;
+ 
+        cout << "\n";
+    }
+}
+ 
+int main()
+{
+    fastio();
+    solve();
+}
